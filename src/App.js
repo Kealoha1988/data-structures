@@ -7,6 +7,7 @@ function App() {
   let list = new SinglyLinkedList()
   list.push('hello')
   list.push('you')
+  list.pop()
 
   let cool = "hello this is cool"
 
