@@ -3,5 +3,10 @@ export class Node{
     this.value = value
     this.next = null
   }
+
+  
+  renderSelf() {
+    return <p>{this.value}</p>;
+  }
 }
 
