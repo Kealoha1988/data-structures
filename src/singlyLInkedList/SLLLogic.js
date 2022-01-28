@@ -56,6 +56,34 @@ export class SinglyLinkedList{
     return this
   }
 
+  get(index){
+    if (index < 0 || index >= this.length) return null
+    let count = 0
+    let current = this.head
+    while(count !== index){
+      current = current.next
+      count++
+    }
+    return current
+  }
+
+  insert(value, index){
+    let newNode = new Node(value)
+    if (index < 0 || index > this.length) return false
+    if (index === this.length) this.push(value)
+    if (index === 0) this.unshift(value)
+    let current = this.head
+    let count = 0
+    while(count !== value){
+      current = current.next
+      count++
+    }
+    newNode.next = current.next
+    current.next = newNode
+    this.length++
+    return this
+  }
+
 
 }
 
