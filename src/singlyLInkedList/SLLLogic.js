@@ -35,6 +35,15 @@ export class SinglyLinkedList{
     }
   }
 
+  shift(){
+    if(!this.head)return null
+    let tempHead = this.head
+    this.head = tempHead.next
+    this.length--
+    if(this.length === 0)this.tail = null
+    return tempHead
+  }
+
 
 }
 
