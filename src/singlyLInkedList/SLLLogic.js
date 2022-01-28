@@ -44,6 +44,18 @@ export class SinglyLinkedList{
     return tempHead
   }
 
+  unshift(value){
+    let newNode = new Node(value)
+    if(!this.head){
+      this.head = newNode
+      this.tail = newNode
+    }
+    newNode.next = this.head
+    this.head = newNode
+    this.length++
+    return this
+  }
+
 
 }
 
