@@ -1,5 +1,5 @@
 import './App.css';
-import {SinglyLinkedList} from './singlyLInkedList/SLLLogic'
+import {SinglyLinkedList} from './dataStructuresLogic/SLLLogic'
 
 
 function App() {
@@ -7,17 +7,36 @@ function App() {
   let list = new SinglyLinkedList()
   list.push('hello')
   list.push('you')
-  list.pop()
-  list.unshift("hey")
+  list.push('how')
+  list.push('are')
+  list.push('you')
 
-  let cool = "hello this is cool"
+  const showAll = (sLL) => {
+    let cool = []
+    let current = sLL.head
+    while(true){
+      if(current.next){
+      cool.push(current)
+      current = current.next
+      }
+      if(!current.next){
+      cool.push(current)
+      break
+      }
+    }
+    console.log(cool)
+    return cool.map(c => c.renderSelf())
+  }
+  
+ 
+
+ 
 
   return (
     <div className="App">
       <h1 style={{color: 'purple'}}>Data Sturctures!</h1>
       <br></br>
-      <h3 style={{color: 'blue'}}>testing!!!!</h3>
-      <h3>{list.get(1).renderself()}</h3>
+      <div>{showAll(list)}</div>
     </div>
   );
 }

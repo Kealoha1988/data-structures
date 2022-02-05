@@ -1,4 +1,4 @@
-import {Node} from "../GlobalVariables"
+import {LNode} from "../GlobalVariables"
 
 export class SinglyLinkedList{
   constructor(){
@@ -7,8 +7,9 @@ export class SinglyLinkedList{
     this.length = 0
   }
 
+
   push(value){
-    let newNode = new Node(value)
+    let newNode = new LNode(value)
     if (!this.head){
       this.head = newNode
       this.tail = this.head
@@ -45,7 +46,7 @@ export class SinglyLinkedList{
   }
 
   unshift(value){
-    let newNode = new Node(value)
+    let newNode = new LNode(value)
     if(!this.head){
       this.head = newNode
       this.tail = newNode
@@ -67,22 +68,23 @@ export class SinglyLinkedList{
     return current
   }
 
-  insert(value, index){
-    let newNode = new Node(value)
-    if (index < 0 || index > this.length) return false
-    if (index === this.length) this.push(value)
-    if (index === 0) this.unshift(value)
+  insert(node, index){
+    let newNode = new LNode (node)
+    if(index < 0 || index > this.length) return false
+    if (index === this.length) this.push(node)
+    if (index === 0) this.unshift(node)
     let current = this.head
-    let count = 0
-    while(count !== value){
-      current = current.next
-      count++
+    let count = 1
+    while (count !== index){
+    current = current.next
+    count++
     }
     newNode.next = current.next
     current.next = newNode
     this.length++
     return this
-  }
+    }
+
 
 
 }
